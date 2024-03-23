@@ -82,6 +82,7 @@ corGaussianPeriodicSquare2 <- function(inputs, phi, period) {
     }
     
     for (i in 1:n.inputs) {
+        i
         dist.mat <- rdist(inputs[, i])
         stopifnot(dist.mat >= 0, dist.mat <= period[i])
         min.dist <- pmin(period[i] - dist.mat, dist.mat)
