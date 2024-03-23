@@ -74,11 +74,17 @@ corGaussianPeriodicSquare2 <- function(inputs, phi, period) {
     n.inputs <- ncol(inputs)
     delta <- exp(phi)
     Ap2 <- 1
+
+    if (length(period) == 1) {
+        period <- c(rep(period, n.inputs))
+    } else if (length(period) != n.inputs) {
+        stop("length of period should equal the number of columns in inputs")
+    }
     
     for (i in 1:n.inputs) {
         dist.mat <- rdist(inputs[, i])
-        stopifnot(dist.mat >= 0, dist.mat <= period)
-        min.dist <- pmin(period - dist.mat, dist.mat)
+        stopifnot(dist.mat >= 0, dist.mat <= period[i])
+        min.dist <- pmin(period[i] - dist.mat, dist.mat)
         Ap2 <- Ap2 * exp(-(min.dist/delta[i]) ^ 2)
     }
     Ap2
