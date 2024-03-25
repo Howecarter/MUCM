@@ -92,6 +92,7 @@ corGaussianPeriodicSquare2 <- function(inputs, phi, period) {
         if (any(dist.mat < 0) || any(dist.mat > period[i])) {
         # Print the value of i where the condition fails
         cat("Condition failed for i =", i, "\n")
+        print(max(dist.mat))
         stopifnot(dist.mat >= 0, dist.mat <= period[i])
     }
         min.dist <- pmin(period[i] - dist.mat, dist.mat)
