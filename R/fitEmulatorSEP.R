@@ -3,7 +3,7 @@
 #' @export
 fitEmulatorSEP <- function(inputs, outputs, prior.mean = "linear",                            
                            cor.function = corGaussian, phi.opt, sigmasq.opt, 
-                           MCMC.iterations = 150,   
+                           MCMC.iterations = 50,   
                            phi.init, sigmasq.init,
                            MC.plot = TRUE, nugget = NULL,
                            optim.method = "BFGS", optim.gr = NULL,
